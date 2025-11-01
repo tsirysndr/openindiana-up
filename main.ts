@@ -173,7 +173,7 @@ if (import.meta.main) {
     )
     .option(
       "--size <size:string>",
-      "Size of the VM disk image (e.g., 20G)",
+      "Size of the VM disk image to create if it does not exist",
       {
         default: "20G",
       },
