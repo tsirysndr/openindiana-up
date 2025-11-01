@@ -96,8 +96,8 @@ openindiana-up -o ~/isos/openindiana.iso
 
 ## 🖥️ Console Setup
 
-When FreeBSD boots, you'll see the boot menu. For the best experience with the
-serial console:
+When OpenIndiana boots, you'll see the boot menu. For the best experience with
+the serial console:
 
 1. **Select option `3. Escape to loader prompt`**
 2. **Configure console output:**
@@ -121,7 +121,7 @@ The script creates a VM with the following default specifications:
   `--drive`)
 - **Network**: User mode networking with SSH forwarding
 - **Console**: Enhanced serial console via stdio with proper signal handling
-- **Default Version**: FreeBSD 14.3-RELEASE (when no arguments provided)
+- **Default Version**: OpenIndiana 20251026 (when no arguments provided)
 
 ### Available CPU Types
 
