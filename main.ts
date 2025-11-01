@@ -12,7 +12,7 @@ interface Options {
   memory: string;
   drive?: string;
   diskFormat: string;
-  size?: string;
+  size: string;
 }
 
 async function downloadIso(url: string, outputPath?: string): Promise<string> {
@@ -130,7 +130,7 @@ async function createDriveImageIfNeeded(
   }
 
   const cmd = new Deno.Command("qemu-img", {
-    args: ["create", "-f", format, path!, size!],
+    args: ["create", "-f", format, path!, size],
     stdin: "inherit",
     stdout: "inherit",
     stderr: "inherit",
