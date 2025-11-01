@@ -1,6 +1,6 @@
 # 🌅 OpenIndiana Up
 
-> A simple, powerful CLI tool to spin up OpenIndiana virtual machines with QEMU
+A simple, powerful CLI tool to spin up OpenIndiana virtual machines with QEMU
 
 ![Preview](./preview.png)
 
