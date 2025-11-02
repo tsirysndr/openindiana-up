@@ -55,14 +55,15 @@ openindiana-up [path-or-url-to-iso-or-version] [options]
 
 ### Options
 
-| Option                   | Description                    | Default      |
-| ------------------------ | ------------------------------ | ------------ |
-| `-o, --output <path>`    | Output path for downloaded ISO | ISO filename |
-| `-c, --cpu <type>`       | CPU type to emulate            | `host`       |
-| `-C, --cpus <number>`    | Number of CPU cores            | `2`          |
-| `-m, --memory <size>`    | RAM allocation                 | `2G`         |
-| `-d, --drive <path>`     | Path to virtual disk image     | None         |
-| `--disk-format <format>` | Disk format (qcow2, raw, etc.) | `raw`        |
+| Option                   | Description                                                  | Default      |
+| ------------------------ | ------------------------------------------------------------ | ------------ |
+| `-o, --output <path>`    | Output path for downloaded ISO                               | ISO filename |
+| `-c, --cpu <type>`       | CPU type to emulate                                          | `host`       |
+| `-C, --cpus <number>`    | Number of CPU cores                                          | `2`          |
+| `-m, --memory <size>`    | RAM allocation                                               | `2G`         |
+| `-d, --drive <path>`     | Path to virtual disk image                                   | None         |
+| `--disk-format <format>` | Disk format (qcow2, raw, etc.)                               | `raw`        |
+| `--bridge <name>`        | Name of the network bridge to use for networking (e.g., br0) | None         |
 
 ## 💡 Examples
 
