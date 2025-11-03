@@ -16,6 +16,13 @@ A simple, powerful CLI tool to spin up OpenIndiana virtual machines with QEMU
 - 🌐 **SSH Ready** - Pre-configured port forwarding (host:2222 → guest:22)
 - 🎛️ **Customizable** - Configure CPU, memory, cores, and disk options
 - 📥 **Smart Caching** - Skips re-downloading existing ISO files
+- 🎮 **VM Management** - Start, stop, list, and inspect virtual machines
+- 📊 **State Persistence** - SQLite database tracks VM state and configuration
+- 🏷️ **Auto-naming** - Generates unique names for VMs automatically
+- 🌉 **Bridge Networking** - Support for bridge networking with custom network
+  interfaces
+- 🆔 **MAC Address Management** - Automatic MAC address generation for network
+  devices
 
 ## 📋 Requirements
 
@@ -63,7 +70,18 @@ openindiana-up [path-or-url-to-iso-or-version] [options]
 | `-m, --memory <size>`    | RAM allocation                                               | `2G`         |
 | `-d, --drive <path>`     | Path to virtual disk image                                   | None         |
 | `--disk-format <format>` | Disk format (qcow2, raw, etc.)                               | `raw`        |
-| `--bridge <name>`        | Name of the network bridge to use for networking (e.g., br0) | None         |
+| `--size <size>`          | Size of the VM disk image to create if it does not exist     | `20G`        |
+| `-b, --bridge <name>`    | Name of the network bridge to use for networking (e.g., br0) | None         |
+
+### VM Management Commands
+
+| Command                            | Description                                   |
+| ---------------------------------- | --------------------------------------------- |
+| `openindiana-up ps`                | List all running virtual machines             |
+| `openindiana-up ps --all`          | List all virtual machines (including stopped) |
+| `openindiana-up start <vm-name>`   | Start a stopped virtual machine               |
+| `openindiana-up stop <vm-name>`    | Stop a running virtual machine                |
+| `openindiana-up inspect <vm-name>` | Inspect virtual machine configuration         |
 
 ## 💡 Examples
 
@@ -93,6 +111,39 @@ openindiana-up -d openindiana-disk.qcow2 --disk-format qcow2
 
 ```bash
 openindiana-up -o ~/isos/openindiana.iso
+```
+
+### VM Management Examples
+
+```bash
+# List all running VMs
+openindiana-up ps
+
+# List all VMs (including stopped ones)
+openindiana-up ps --all
+
+# Start a specific VM
+openindiana-up start my-vm-name
+
+# Stop a running VM
+openindiana-up stop my-vm-name
+
+# Inspect VM configuration
+openindiana-up inspect my-vm-name
+```
+
+### Bridge Networking
+
+```bash
+# Use bridge networking (requires bridge setup)
+openindiana-up --bridge br0
+```
+
+### Automatic Disk Creation
+
+```bash
+# Automatically create a 50GB disk if it doesn't exist
+openindiana-up --drive my-disk.qcow2 --disk-format qcow2 --size 50G
 ```
 
 ## 🖥️ Console Setup
@@ -158,6 +209,13 @@ ssh -p 2222 user@localhost
 - Downloaded ISOs are cached and won't be re-downloaded if they exist
 - KVM acceleration requires `/dev/kvm` access on your host system
 - Serial console is connected to stdio for direct interaction
+- VM state is automatically persisted in a SQLite database at
+  `~/.openindiana-up/state.sqlite`
+- Each VM gets a unique randomly generated name using the Moniker library
+- MAC addresses are automatically generated for network devices
+- Bridge networking requires proper bridge configuration and may need sudo
+  privileges
+- VMs can be managed independently with start/stop/inspect commands
 
 ## 📜 License
 
