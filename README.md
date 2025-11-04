@@ -68,7 +68,7 @@ openindiana-up [path-or-url-to-iso-or-version] [options]
 | `-c, --cpu <type>`       | CPU type to emulate                                          | `host`       |
 | `-C, --cpus <number>`    | Number of CPU cores                                          | `2`          |
 | `-m, --memory <size>`    | RAM allocation                                               | `2G`         |
-| `-d, --drive <path>`     | Path to virtual disk image                                   | None         |
+| `-i, --image <path>`     | Path to virtual disk image                                   | None         |
 | `--disk-format <format>` | Disk format (qcow2, raw, etc.)                               | `raw`        |
 | `--size <size>`          | Size of the VM disk image to create if it does not exist     | `20G`        |
 | `-b, --bridge <name>`    | Name of the network bridge to use for networking (e.g., br0) | None         |
@@ -143,7 +143,7 @@ openindiana-up --bridge br0
 
 ```bash
 # Automatically create a 50GB disk if it doesn't exist
-openindiana-up --drive my-disk.qcow2 --disk-format qcow2 --size 50G
+openindiana-up --image my-disk.qcow2 --disk-format qcow2 --size 50G
 ```
 
 ## 🖥️ Console Setup
@@ -170,7 +170,7 @@ The script creates a VM with the following default specifications:
 - **Memory**: 2GB RAM (configurable with `--memory`)
 - **Cores**: 2 virtual CPUs (configurable with `--cpus`)
 - **Storage**: ISO-only by default; optional persistent disk (configurable with
-  `--drive`)
+  `--image`)
 - **Network**: User mode networking with SSH forwarding
 - **Console**: Enhanced serial console via stdio with proper signal handling
 - **Default Version**: OpenIndiana 20251026 (when no arguments provided)
