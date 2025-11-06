@@ -2,6 +2,7 @@ import _ from "@es-toolkit/es-toolkit/compat";
 import { createId } from "@paralleldrive/cuid2";
 import chalk from "chalk";
 import Moniker from "moniker";
+import { EMPTY_DISK_THRESHOLD_KB } from "./constants.ts";
 import { generateRandomMacAddress } from "./network.ts";
 import { saveInstanceState } from "./state.ts";
 
@@ -37,7 +38,7 @@ export async function emptyDiskImage(path: string): Promise<boolean> {
   }
 
   const size = await du(path);
-  return size < 10;
+  return size < EMPTY_DISK_THRESHOLD_KB;
 }
 
 export async function downloadIso(
@@ -49,7 +50,7 @@ export async function downloadIso(
 
   if (options.image && await Deno.stat(options.image).catch(() => false)) {
     const driveSize = await du(options.image);
-    if (driveSize > 10) {
+    if (driveSize > EMPTY_DISK_THRESHOLD_KB) {
       console.log(
         chalk.yellowBright(
           `Drive image ${options.image} is not empty (size: ${driveSize} KB), skipping ISO download to avoid overwriting existing data.`,
