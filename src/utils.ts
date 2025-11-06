@@ -112,6 +112,8 @@ export async function runQemu(
         : "user,id=net0,hostfwd=tcp::2222-:22",
       "-device",
       `e1000,netdev=net0,mac=${macAddress}`,
+      "-device",
+      "ahci,id=ahci0",
       "-nographic",
       "-monitor",
       "none",
@@ -122,7 +124,9 @@ export async function runQemu(
       ..._.compact(
         options.image && [
           "-drive",
-          `file=${options.image},format=${options.diskFormat},if=virtio`,
+          `file=${options.image},format=${options.diskFormat},if=none,id=disk0`,
+          "-device",
+          "ide-hd,drive=disk0,bus=ahci0.0",
         ],
       ),
     ],

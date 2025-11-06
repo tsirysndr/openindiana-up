@@ -29,6 +29,8 @@ export default async function (name: string) {
         : "user,id=net0,hostfwd=tcp::2222-:22",
       "-device",
       `e1000,netdev=net0,mac=${vm.macAddress}`,
+      "-device",
+      "ahci,id=ahci0",
       "-nographic",
       "-monitor",
       "none",
@@ -39,7 +41,9 @@ export default async function (name: string) {
       ..._.compact(
         vm.drivePath && [
           "-drive",
-          `file=${vm.drivePath},format=${vm.diskFormat},if=virtio`,
+          `file=${vm.drivePath},format=${vm.diskFormat},if=none,id=disk0`,
+          "-device",
+          "ide-hd,drive=disk0,bus=ahci0.0",
         ],
       ),
     ],
