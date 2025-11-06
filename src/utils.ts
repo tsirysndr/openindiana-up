@@ -1,6 +1,6 @@
+import _ from "@es-toolkit/es-toolkit/compat";
 import { createId } from "@paralleldrive/cuid2";
 import chalk from "chalk";
-import _ from "lodash";
 import Moniker from "moniker";
 import { generateRandomMacAddress } from "./network.ts";
 import { saveInstanceState } from "./state.ts";

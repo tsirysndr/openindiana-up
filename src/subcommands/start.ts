@@ -1,4 +1,4 @@
-import _ from "lodash";
+import _ from "@es-toolkit/es-toolkit/compat";
 import { getInstanceState, updateInstanceState } from "../state.ts";
 
 export default async function (name: string) {
