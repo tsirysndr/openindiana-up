@@ -1,6 +1,7 @@
 #!/usr/bin/env -S deno run --allow-run --allow-read --allow-env
 
 import { Command } from "@cliffy/command";
+import pkg from "./deno.json" with { type: "json" };
 import { createBridgeNetworkIfNeeded } from "./src/network.ts";
 import inspect from "./src/subcommands/inspect.ts";
 import ps from "./src/subcommands/ps.ts";
@@ -19,7 +20,7 @@ import {
 if (import.meta.main) {
   await new Command()
     .name("openindiana-up")
-    .version("0.1.0")
+    .version(pkg.version)
     .description("Start a OpenIndiana virtual machine using QEMU")
     .arguments(
       "[path-or-url-to-iso-or-version:string]",
