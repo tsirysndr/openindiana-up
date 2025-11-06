@@ -3,6 +3,7 @@
   "specifiers": {
     "jsr:@cliffy/command@^1.0.0-rc.8": "1.0.0-rc.8",
     "jsr:@cliffy/flags@1.0.0-rc.8": "1.0.0-rc.8",
+    "jsr:@cliffy/flags@^1.0.0-rc.8": "1.0.0-rc.8",
     "jsr:@cliffy/internal@1.0.0-rc.8": "1.0.0-rc.8",
     "jsr:@cliffy/table@1.0.0-rc.8": "1.0.0-rc.8",
     "jsr:@cliffy/table@^1.0.0-rc.8": "1.0.0-rc.8",
@@ -29,14 +30,13 @@
     "npm:effect@^3.19.2": "3.19.2",
     "npm:kysely@0.27.6": "0.27.6",
     "npm:kysely@~0.27.2": "0.27.6",
-    "npm:lodash@^4.17.21": "4.17.21",
     "npm:moniker@~0.1.2": "0.1.2"
   },
   "jsr": {
     "@cliffy/command@1.0.0-rc.8": {
       "integrity": "758147790797c74a707e5294cc7285df665422a13d2a483437092ffce40b5557",
       "dependencies": [
-        "jsr:@cliffy/flags",
+        "jsr:@cliffy/flags@1.0.0-rc.8",
         "jsr:@cliffy/internal",
         "jsr:@cliffy/table@1.0.0-rc.8",
         "jsr:@std/fmt@~1.0.2",
@@ -168,9 +168,6 @@
     "kysely@0.27.6": {
       "integrity": "sha512-FIyV/64EkKhJmjgC0g2hygpBv5RNWVPyNCqSAD7eTCv6eFWNIi4PN1UvdSJGicN/o35bnevgis4Y0UDC0qi8jQ=="
     },
-    "lodash@4.17.21": {
-      "integrity": "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="
-    },
     "moniker@0.1.2": {
       "integrity": "sha512-Uj9iV0QYr6281G+o0TvqhKwHHWB2Q/qUTT4LPQ3qDGc0r8cbMuqQjRXPZuVZ+gcL7APx+iQgE8lcfWPrj1LsLA=="
     },
@@ -181,6 +178,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@cliffy/command@^1.0.0-rc.8",
+      "jsr:@cliffy/flags@^1.0.0-rc.8",
       "jsr:@cliffy/table@^1.0.0-rc.8",
       "jsr:@db/sqlite@0.12",
       "jsr:@es-toolkit/es-toolkit@^1.41.0",
@@ -191,7 +189,6 @@
       "npm:dayjs@^1.11.19",
       "npm:effect@^3.19.2",
       "npm:kysely@0.27.6",
-      "npm:lodash@^4.17.21",
       "npm:moniker@~0.1.2"
     ]
   }
